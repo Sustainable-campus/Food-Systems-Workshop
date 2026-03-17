@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Food Systems Workshop - Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0ea5a9;
+      --primary-dark: #0d9488;
+      --secondary: #06b6d4;
+      --success: #10b981;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --bg: #f6f9fc;
+      --card: #ffffff;
+      --border: #e6eef2;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--bg) 0%, #eef4f7 100%);
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding: 40px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 16px;
+      color: white;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .header-logo {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Section */
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      font-size: 2em;
+      color: var(--gray-900);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+    }
+
+    section h3 {
+      font-size: 1.4em;
+      color: var(--gray-800);
+      margin: 25px 0 15px 0;
+      font-weight: 600;
+    }
+
+    section p,
+    section li {
+      color: var(--gray-600);
+      margin-bottom: 12px;
+      font-size: 1em;
+    }
+
+    section ul {
+      margin-left: 20px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    /* Intro Section */
+    .intro-box {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+      border-left: 4px solid var(--primary);
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .intro-box h3 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    .intro-box ul {
+      margin: 15px 0;
+    }
+
+    /* PDFs Grid */
+    .pdfs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .pdf-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .pdf-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pdf-icon {
+      font-size: 3em;
+      margin-bottom: 15px;
+    }
+
+    .pdf-card h4 {
+      color: var(--gray-900);
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .pdf-card p {
+      color: var(--gray-600);
+      margin-bottom: 20px;
+      font-size: 0.95em;
+      text-align: left;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-item::after {
+      content: '🔍 Click to view';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(14, 165, 233, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 12px;
+      margin: 25px 0;
+      box-shadow: var(--shadow);
+    }
+
+    table.dataframe {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+    }
+
+    table.dataframe thead {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+
+    table.dataframe th {
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.95em;
+      word-break: break-word;
+    }
+
+    table.dataframe td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9em;
+      color: var(--gray-700);
+    }
+
+    table.dataframe tbody tr:nth-child(even) {
+      background: var(--gray-50);
+    }
+
+    table.dataframe tbody tr:hover {
+      background: var(--gray-100);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+    }
+
+    .btn-secondary:hover {
+      background: #0891b2;
+    }
+
+    .btn-small {
+      padding: 8px 16px;
+      font-size: 0.85em;
+    }
+
+    /* Excel Files Section */
+    .excel-section {
+      background: var(--gray-50);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+
+    .excel-files {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      margin-top: 25px;
+    }
+
+    .excel-file {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--success);
+    }
+
+    .excel-file h4 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray-900);
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+
+    .excel-file .btn {
+      margin-bottom: 15px;
+      font-size: 0.9em;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--gray-600);
+      border-top: 1px solid var(--border);
+      margin-top: 50px;
+      font-size: 0.9em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 15px;
+      }
+
+      .header h1 {
+        font-size: 1.8em;
+      }
+
+      section h2 {
+        font-size: 1.5em;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .pdfs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .excel-files {
+        grid-template-columns: 1fr;
+      }
+
+      table.dataframe {
+        font-size: 0.8em;
+      }
+
+      table.dataframe th,
+      table.dataframe td {
+        padding: 8px;
+      }
+    }
+
+    /* Lightbox customization */
+    .lb-container {
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .lb-nav {
+      border-radius: 12px;
+    }
+
+    .lb-prev,
+    .lb-next {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+    }
+
+    .lb-prev:hover,
+    .lb-next:hover {
+      background: var(--primary);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-logo">🌱</div>
+      <h1>Campus Food Systems Workshop</h1>
+      <p>Student Perspectives on Sustainable Food, Engagement & Local Systems</p>
+    </div>
+
+    <!-- Introduction Section -->
+    <section>
+      <h2>Introduction</h2>
+      <div class="intro-box">
+        <h3>Workshop on Campus Food Systems – Student Perspectives</h3>
+        <p>This repository documents the results of a participatory workshop on food systems on campus. Students
+          discussed challenges and possible solutions related to food quality, sustainability, local food systems, and
+          student participation in food-related decision-making.</p>
+
+        <p><strong>Workshop Details:</strong></p>
+        <ul>
+          <li>Hosted at the Green Office of the University of Hohenheim</li>
+          <li>Organized by students from the course "Enacting Local Transformation in the Agri-Food System"</li>
+          <li>Participants shared ideas through guided discussions and interactive poster activities</li>
+          <li>Funded by Stiftung Innovation in der Hochschullehre through the TREE project module</li>
+        </ul>
+
+        <p><strong>Repository Contents:</strong></p>
+        <ul>
+          <li>Workshop guiding materials and questions</li>
+          <li>Summarized results from participant discussions</li>
+          <li>Photos of the posters where students shared their responses and ideas</li>
+          <li>Structured data from feedback collected during the workshop</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PDFs Section -->
+    <section>
+      <h2>📋 Guided Questions</h2>
+      <p>These documents contain the guided questions used during the workshop to facilitate discussion. The questions
+        helped participants reflect on key topics such as food diversity, sustainability, local food connections, and
+        student influence on campus food systems. They served as the framework for group conversations and idea
+        generation. The responses collected from these prompts informed the workshop results.</p>
+
+      <div class="pdfs-grid">
+        <div class="pdf-card">
+          <div class="pdf-icon">📄</div>
+          <h4>Guided Questions 1</h4>
+          <p><strong>Topic:</strong> Food on Campus</p>
+          <p>Explores questions about food quality, choice & healthy lifestyle; sustainability, climate & resource use;
+            campus as a living agrifood system; and local food & student connection.</p>
+          <a href="resources/Guided_Questions_1.pdf" download class="btn btn-small" target="_blank">Download PDF</a>
+        </div>
+
+        <div class="pdf-card">
+          <div class="pdf-icon">📄</div>
+          <h4>Guided Questions 2</h4>
+          <p><strong>Topic:</strong> Student Engagement</p>
+          <p>Addresses barriers to student engagement including personal & physical barriers, knowledge & communication
+            barriers, structural & practical barriers, and study program considerations.</p>
+          <a href="resources/Guided_Questions_2.pdf" download class="btn btn-small" target="_blank">Download PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Images Section -->
+    <section>
+      <h2>🖼️ Workshop Feedback & Student Posters</h2>
+      <p>These images show the posters used during the workshop where students directly shared their ideas and feedback.
+        Participants wrote their answers, challenges, and proposed solutions on the posters in response to guided
+        questions. The posters capture the raw and collaborative nature of the discussion and illustrate how students
+        engaged with the topic of campus food systems. Click on any image to view it in full size.</p>
+
+      <div class="gallery">
+        <a href="resources/Feedback-1.jpeg" data-lightbox="workshop" data-title="Student Poster 1" target="_blank">
+          <div class="gallery-item">
+            <img src="resources/Feedback-1-thumb.jpeg" alt="Student Poster 1">
+          </div>
+        </a>
+
+        <a href="resources/Feedback-2.jpeg" data-lightbox="workshop" data-title="Student Poster 2" target="_blank">
+          <div class="gallery-item">
+            <img src="resources/Feedback-2-thumb.jpeg" alt="Student Poster 2">
+          </div>
+        </a>
+
+        <a href="resources/Feedback-3.jpeg" data-lightbox="workshop" data-title="Student Poster 3" target="_blank">
+          <div class="gallery-item">
+            <img src="resources/Feedback-3-thumb.jpeg" alt="Student Poster 3">
+          </div>
+        </a>
+
+        <a href="resources/Feedback-4.jpeg" data-lightbox="workshop" data-title="Student Poster 4" target="_blank">
+          <div class="gallery-item">
+            <img src="resources/Feedback-4-thumb.jpeg" alt="Student Poster 4">
+          </div>
+        </a>
+
+        <a href="resources/Feedback-5.jpeg" data-lightbox="workshop" data-title="Student Poster 5" target="_blank">
+          <div class="gallery-item">
+            <img src="resources/Feedback-5-thumb.jpeg" alt="Student Poster 5">
+          </div>
+        </a>
+
+        <a href="resources/Feedback-6.jpeg" data-lightbox="workshop" data-title="Student Poster 6" target="_blank">
+          <div class="gallery-item">
+            <img src="resources/Feedback-6-thumb.jpeg" alt="Student Poster 6">
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Excel Files Section -->
+    <section>
+      <h2>📊 Workshop Results & Data</h2>
+      <p>These spreadsheets summarize the main insights collected during the campus food workshop. Participants
+        discussed challenges related to food quality, sustainability, local food systems, and student agency, and
+        proposed practical solutions. The files compile participants' responses into a structured format to highlight
+        recurring themes and ideas generated during the discussions.</p>
+
+      <div class="excel-section">
+        <div class="excel-files">
+          <!-- Food Campus -->
+          <div class="excel-file">
+            <h4>📗 Result: Food on Campus</h4>
+            <p>Comprehensive data on campus food challenges and solutions, covering food quality, sustainability, campus
+              food systems, local food, and student agency.</p>
+            <p>
+              <strong>Key Results</strong>
+              <br />
+              The workshop results reveal several areas of strong agreement among participants as well as topics
+              requiring further discussion. Flexibility in portion sizes achieved full consensus among participants as
+              both a challenge and a solution, highlighting it as an immediate opportunity for implementation to reduce
+              food waste and improve student satisfaction. Similarly, financial access to regional products and
+              transparency regarding food sourcing and waste management also reached full agreement, with students
+              supporting solutions such as student discounts, QR codes, or kitchen tours to better understand the campus
+              food system. In contrast, the issue of Mensa plate waste showed a strong consensus that the problem
+              exists, but no unified solution was identified. Participants proposed different ideas, including takeaway
+              options, leftover boxes, or partnerships with initiatives such as Too Good To Go, indicating that further
+              discussion is needed to determine the most suitable approach. A similar pattern emerged regarding student
+              influence on campus food decisions: while participants unanimously felt that students currently have
+              limited impact on decision-making, there was no single preferred solution. Suggestions ranged from
+              publishing regular progress reports to creating a student seat on the culinary board or establishing a
+              transparency dashboard. Overall, the results highlight several “quick win” opportunities for immediate
+              action, while other areas call for continued collaboration to identify the most effective solutions.
+            </p>
+            <a href="resources/Result_Food_Campus.xlsx" download class="btn btn-small">📥 Download Excel</a>
+            <details>
+              <summary style="cursor: pointer; color: var(--primary); font-weight: 600; margin-top: 15px;">View Data
+                Table</summary>
+              <div class="table-wrapper" style="margin-top: 15px;">
+                <table class="dataframe">
+                  <thead>
+                    <tr>
+                      <th>Food on Campus</th>
+                      <th>Category</th>
+                      <th>Question</th>
+                      <th>Challenge</th>
+                      <th>Challenge Consensus Score</th>
+                      <th>Comment</th>
+                      <th>Solution</th>
+                      <th>Solution Consensus Score</th>
+                      <th>Comment.1</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1.  Enough vegetarian and vegan options?</td>
+                      <td>Food Quality </td>
+                      <td>Availability of vegan dishes</td>
+                      <td>2.0</td>
+                      <td>0.6666666666666666</td>
+                      <td>Only one vegan options</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Add vegan side dishes</td>
+                    </tr>
+                    <tr>
+                      <td>2.  Healthy vs fast food challenge?</td>
+                      <td>Food Quality </td>
+                      <td>Health & oil content of meals</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Too much fried food</td>
+                      <td>2.0</td>
+                      <td>0.6666666666666666</td>
+                      <td>Offer gridle alternatives</td>
+                    </tr>
+                    <tr>
+                      <td>3.  Cultural diversity of food?</td>
+                      <td>Food Quality </td>
+                      <td>Cultural diversity of the menu</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Lacks cultural variety </td>
+                      <td>2.0</td>
+                      <td>0.6666666666666666</td>
+                      <td>Weekly International Day</td>
+                    </tr>
+                    <tr>
+                      <td>1.  Where do you see the biggest food waste problem on campus?</td>
+                      <td>Sustainability</td>
+                      <td>Management of Mensa leftover</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Mensa plate waste</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>Different ideas: Takeaway options, leftover boxes or partnerships with organizations like Too
+                        Good To Go</td>
+                    </tr>
+                    <tr>
+                      <td>2.  Do portion sizes lead to a lot of leftovers or waste?</td>
+                      <td>Sustainability</td>
+                      <td>Flexibility of portion sizes</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Fix sizes causes waste</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>S/M/L size options </td>
+                    </tr>
+                    <tr>
+                      <td>3.  Do you consider the climate impact when choosing your meals? Why or why not?</td>
+                      <td>Sustainability</td>
+                      <td>Transparency of meal carbon footprint</td>
+                      <td>2.0</td>
+                      <td>0.6666666666666666</td>
+                      <td>No info on meal impact</td>
+                      <td>2.0</td>
+                      <td>0.6666666666666666</td>
+                      <td>Add info to app or labels</td>
+                    </tr>
+                    <tr>
+                      <td>1.  Do students have enough opportunities to learn about food production outside the classroom
+                        (e.g. events, visits, projects)?</td>
+                      <td>Campus System</td>
+                      <td>Student awareness of campus food initiatives</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Awareness limited to specific majors</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Info event for all programs</td>
+                    </tr>
+                    <tr>
+                      <td>2.  Which information about campus food production is missing or unclear for students?</td>
+                      <td>Campus System</td>
+                      <td>Transparency of food sourcing & waste</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Sourcing & waste process unknown</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Use QR code/kitchen-tour videos </td>
+                    </tr>
+                    <tr>
+                      <td>1.  Do students know where their food comes from?</td>
+                      <td>Local Food</td>
+                      <td>Awareness of local food benefits</td>
+                      <td>2.0</td>
+                      <td>0.6666666666666666</td>
+                      <td>Students prioritize price over impact</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Posters highlighting local farmers</td>
+                    </tr>
+                    <tr>
+                      <td>2.  Is local food perceived as affordable and relevant for students?</td>
+                      <td>Local Food</td>
+                      <td>Financial access to regional products</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Local food is too expensive</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Student discount for local food</td>
+                    </tr>
+                    <tr>
+                      <td>3.  Do students see their food choices as supporting the local economy and environment?</td>
+                      <td>Local Food</td>
+                      <td>Connection between students & farmers</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Higher reliance on budget discounter</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Farm shop info on Mensa/cafeteria</td>
+                    </tr>
+                    <tr>
+                      <td>1.  Do students currently have real influence on food related decisions on campus? Why or why
+                        not?</td>
+                      <td>Student Agency</td>
+                      <td>Ease of submitting student feedback</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>Current system takes too much effort</td>
+                      <td>2.0</td>
+                      <td>0.6666666666666666</td>
+                      <td>Campus wide QR code system</td>
+                    </tr>
+                    <tr>
+                      <td>2.  What supports or structures are missing for students to contribute to real change?</td>
+                      <td>Student Agency</td>
+                      <td>Student impact on decision-making</td>
+                      <td>3.0</td>
+                      <td>1.0</td>
+                      <td>They feel their voice has no impact</td>
+                      <td>0.0</td>
+                      <td>0.0</td>
+                      <td>Different ideas: Publishing formal progress reports every 3–6 months, establishing a student
+                        seat on the culinary board or creating a transparency dashboard to track feedback.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>
+                What do the numbers in the columns of challenge and solution mean?<br />
+                3 = all three groups of students have similar ideas for the question<br />
+                2 = 2 out of 3 groups have similar ideas<br />
+                0 = no similar ideas from the three groups<br />
+                <br /><br />
+                Score of 1.0 (Total Consensus): This was assigned when all three groups independently
+                identified the same specific challenge or proposed the same specific solution (e.g., all three
+                groups requested a QR-code feedback system).
+                <br /><br />
+                Score of 0.67 (High Agreement): This was assigned when two out of the three groups provided matching
+                responses.
+                <br /><br />
+                Score of 0.33 (Low Agreement): This was assigned when only one group identified a specific point or
+                the ideas were very loosely related.
+                <br /><br />
+                Score of 0 (No Consensus/Different Ideas): This was assigned when the three groups provided entirely
+                different ideas or no overlapping themes were found.
+                <br /><br />
+                Challenge high (1.0) + Solution high (1.0)<br />
+                → Strong transformation readiness
+                <br /><br />
+                Challenge high + Solution low<br />
+                → Problem recognized but no clear strategy
+                <br /><br />
+                Challenge low + Solution high<br />
+                → Idea-driven but not urgent
+                <br /><br />
+                To avoid confusion, two bar charts created based on categories: The one on the left is for categories
+                Food Quality and Sustainability and the bar chart on the right is for the categories of Campus System,
+                Local Food and Student Agency.
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <hr style="border-color: var(--border); margin: 40px 0;">
+
+        <div class="excel-file">
+          <h4>📗 Result: Student Engagement</h4>
+          <p>Insights into student engagement barriers and solutions, including personal, knowledge, structural, and
+            program-related factors affecting student participation.</p>
+          <p>
+            <strong>Key Results</strong>
+            <br />
+            The analysis of student engagement highlights both clear priorities and areas requiring further discussion.
+            Participants showed strong consensus that sustainability education on campus is currently too limited and
+            often restricted to students in related majors. There was full agreement that non-related programs are
+            largely excluded from sustainability learning opportunities and that sustainability courses are not
+            sufficiently accessible across faculties. However, despite this shared recognition of the problem, no single
+            solution reached consensus. Participants proposed several different ideas, including introducing a mandatory
+            sustainability module for all majors, creating a university-wide green skills certification, and developing
+            peer-to-peer mentoring between students from environmental and non-environmental programs. In contrast,
+            topics such as knowledge and communication barriers and the lack of career-related sustainability skills
+            showed strong agreement on both the challenges and the proposed solutions. Students supported clearer
+            communication and structured updates on campus sustainability initiatives, such as expert-guided progress
+            reports. Overall, the results indicate a strong demand for a more inclusive and integrated sustainability
+            education, while highlighting the need for the university to consolidate the various student proposals into
+            a coordinated strategy for broader engagement.
+          </p>
+          <a href="resources/Result_Student_Engagement.xlsx" download class="btn btn-small">📥 Download Excel</a>
+          <details>
+            <summary style="cursor: pointer; color: var(--primary); font-weight: 600; margin-top: 15px;">View Data Table
+            </summary>
+            <div class="table-wrapper" style="margin-top: 15px;">
+              <table class="dataframe">
+                <thead>
+                  <tr>
+                    <th>Student Engagement
+                    </th>
+                    <th>Question</th>
+                    <th>Challenge</th>
+                    <th>Challenge Consensus Score</th>
+                    <th>Comment</th>
+                    <th>Solution</th>
+                    <th>Solution Consensus Score</th>
+                    <th>Comment.1</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>A. Personal & physical barriers</td>
+                    <td>Personal & physical barriers </td>
+                    <td>2 & 3</td>
+                    <td>1.0</td>
+                    <td>Feeling overwhelmed & law impact</td>
+                    <td>3.0</td>
+                    <td>1.0</td>
+                    <td>Offer workshops and rise awareness</td>
+                  </tr>
+                  <tr>
+                    <td>1. Lack of interest</td>
+                    <td>Knowledge & communication barriers</td>
+                    <td>1 & 4</td>
+                    <td>1.0</td>
+                    <td>Low visibility of initiatives & lack of starting point</td>
+                    <td>3.0</td>
+                    <td>1.0</td>
+                    <td>Use English and increase advertisement efforts</td>
+                  </tr>
+                  <tr>
+                    <td>2. Feeling overwhelmed</td>
+                    <td>Structural & physical barriers</td>
+                    <td>3</td>
+                    <td>1.0</td>
+                    <td>No incentives or rewards</td>
+                    <td>2.0</td>
+                    <td>0.6666666666666666</td>
+                    <td>Host more social events to build community </td>
+                  </tr>
+                  <tr>
+                    <td>3. Feeling of „it doesn’t make a difference”</td>
+                    <td>Exclusion of non-related majors</td>
+                    <td>3</td>
+                    <td>1.0</td>
+                    <td>Business/Finance students feel excluded</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>Different ideas: creating a mandatory sustainability module for all faculties, launching a
+                      university-wide green skills certification and developing a peer-to-peer mentoring program between
+                      environmental and business students.</td>
+                  </tr>
+                  <tr>
+                    <td>4. Others (e.g. study, work, time)</td>
+                    <td>Lack of sustainability course for all majors </td>
+                    <td>3</td>
+                    <td>1.0</td>
+                    <td>Courses restricted to specific programs</td>
+                    <td>0.0</td>
+                    <td>0.0</td>
+                    <td>Different ideas</td>
+                  </tr>
+                  <tr>
+                    <td>B. Knowledge & communication barriers</td>
+                    <td>Lack of careers & sustainability skills integration</td>
+                    <td>3</td>
+                    <td>1.0</td>
+                    <td>Missing link to professional green skills</td>
+                    <td>3.0</td>
+                    <td>1.0</td>
+                    <td>Report on progress and expert guidance</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              1. Not knowing where to start<br />
+              2. Too much technical language<br />
+              3. Sustainability feels abstract or unclear<br />
+              4. Poor visibility of initiatives<br />
+              <br />
+              C. Structural & practical barriers<br />
+              1. Lack of time<br />
+              2. Activities don’t fit schedule<br />
+              3. No incentives or rewards<br />
+              <br />
+              D. Study programs<br />
+              1. Do finance/economic/business students feel excluded?<br />
+              2. Do non-sustainable related fields have any/enough sustainable related courses?<br />
+              3. Are links to careers & skills missing?<br />
+              <br />
+              What do the numbers in the columns of challenge and solution mean?<br />
+              <br />
+              The first 3 questions: the number of proposed answers chosen. E.g. For personal and physical barriers,
+              Feeling overwhelmed & Feeling of „it doesn’t make a difference” was the most chosen answer among
+              groups.<br />
+              <br />
+              For the rest of the questions: 3 = all three groups of students have similar ideas for the
+              question<br />
+              <br />
+              2 = 2 out of 3 groups have similar ideas<br />
+              0 = no similar ideas from the three groups<br />
+              How does the score for the first 3 questions define? E.g. all groups agreed on 1 & 4, it is 100%
+              =1<br />
+              <br />
+              Score of 1.0 (Total Consensus): This was assigned when all three groups independently identified the
+              same specific challenge or proposed the same specific solution (e.g., all three groups requested a
+              QR-code feedback system).<br />
+              <br />
+              Score of 0.67 (High Agreement): This was assigned when two out of the three groups provided matching
+              responses.<br />
+              <br />
+              Score of 0.33 (Low Agreement): This was assigned when only one group identified a specific point or the
+              ideas were very loosely related.<br />
+              <br />
+              Score of 0 (No Consensus/Different Ideas): This was assigned when the three groups provided entirely
+              different ideas or no overlapping themes were found.<br />
+              <br />
+              Challenge high (1.0) + Solution high (1.0)<br />
+              → Strong transformation readiness<br />
+              <br />
+              Challenge high + Solution low<br />
+              → Problem recognized but no clear strategy<br />
+              <br />
+              Challenge low + Solution high<br />
+              → Idea-driven but not urgent<br />
+            </p>
+
+          </details>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Campus Food Systems Workshop Results | University of Hohenheim | Funded by Stiftung Innovation in der
+        Hochschullehre</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+</body>
+
+</html>
